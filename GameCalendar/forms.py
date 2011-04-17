@@ -97,3 +97,6 @@ class LoginForm(forms.Form):
         user = self.__userToLogin
         if user is not None and user.is_active:
             login(request, user)
+
+class MessageForm(forms.Form):
+    content = forms.CharField(max_length=5000, widget=forms.Textarea)
