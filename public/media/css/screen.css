@@ -1,0 +1,54 @@
+/* tags */
+body                    { background-color: #eee; padding: 0; margin: 0; color: #444; font-family: Arial, Helvetica, sans-serif; font-size: 0.75em; }
+h1, h2                  { font-family: Arial, Helvetica, sans-serif; font-size: 1.4em; color: #000; }
+h2                      { font-size: 1.2em; padding-top: 20px; }
+
+/* structure */
+#wrapper                { margin: 0 auto; min-width: 600px; max-width: 1000px; width: 65%; background-color: #fff; height: 100%; }
+#breadcrumb             { padding: 10px 20px; }
+#header                 { padding: 10px 20px; 
+                          background: #9dd53a; /* old browsers */
+                          background: -moz-linear-gradient(top, #9dd53a 0%, #a1d54f 50%, #80c217 51%, #7cbc0a 100%); /* firefox */
+                          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9dd53a), color-stop(50%,#a1d54f), color-stop(51%,#80c217), color-stop(100%,#7cbc0a)); /* webkit */
+                          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 ); /* ie */
+                        }
+#content                { padding: 40px 10%; }
+#footer			        { display: block; padding: 15px; background: #45484d; /* old browsers */
+			              background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* firefox */
+			              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* webkit */
+			              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* ie */ }
+#social                 { float: right; padding: 10px; }
+
+/* header */
+#header h1		        { display: inline; margin: 0; padding: 0; color: #fff; font-weight: normal; letter-spacing: 0.4; font-size: 1.8em; text-shadow: 1px 1px 5px #000; filter: dropshadow(color=#000, offx=1, offy=1); }
+#header h1 a            { color: white; text-decoration: none; }
+#header h1 a:hover      { text-decoration: underline; }
+#header h2		        { display: inline; margin: 0; padding: 0 10px; color: #fff; font-weight: normal; letter-spacing: 0.4; font-size: 1.3em; text-shadow: 1px 1px 5px #000; filter: dropshadow(color=#000, offx=1, offy=1); }
+
+/* other sections */
+.extraSection           { background-color: #ddd; padding: 40px 10%; }
+#news                   { padding: 0 2% 0 0; display: table-cell; border-right: 1px dashed #888; }
+#links                  {  padding: 0 0 0 2%; display: table-cell; }
+
+/* calendar */
+table.eventData         { background-color: #d8d8ff; border: 1px solid #c8c8ff; width: 100%; }
+table.eventData th, 
+table.eventData td      { text-align: left; padding: 5px; }
+
+.eventDescription       { margin: 15px 0; }
+.eventEdit              { padding: 5px; background-color: #99d8ff; border: 1px solid #99c8ff; }
+.calendarNavigation     { margin: 15px 0; }
+
+/* footer */
+#footer a               { color: #fff; }
+
+/* forms */
+form.linearForm label   { width: 30%; display: inline-block; }
+form.inlineForm         { display: inline; }
+form div                { padding: 5px; }
+
+form .errorlist         { background-color: #f9a; padding: 5px; margin: 0 5px;
+                          list-style: none; display: inline-block; }
+
+/* internet explorer */
+.iewarning              { background-color: #f9a; }

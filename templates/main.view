@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                Spelkalender
+            {% endblock %}
+        </title>
+        <meta name="description" content="Een kalender voor alle evenementen in
+            België en Nederland gerelateerd aan bordspellen, kaartspellen,
+            role-playing games en wargames. Je weet wel, wat mensen speelden voor
+            er TV-spelletjes en computer games waren." >
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link type="text/css" media="screen" href="/media/css/screen.css" rel="stylesheet" >
+        <link type="text/css" media="screen" href="/media/css/le-frog/jqueryui.custom.css" rel="stylesheet" >
+     </head>
+     <body>
+        <!--[if lt IE 7]>
+        <div class="iewarning">
+            Je Internet Explorer is meer dan 10 jaar oud en wordt niet ondersteund door Spelkalender. 
+            We lossen geen bugs op die enkel in Internet Explorer 6 of ouder voorkomen.
+        </div>
+        <![endif]-->
+        <!--[if IE 7]>
+        <div class="iewarning">
+            Je Internet Explorer is 3 jaar oud. Spelkalender
+            wordt niet getest voor Internet Explorer 7, maar <a
+            href="mailto:spelkalender@gmail.com">meld</a> ons fouten die je tegenkomt.
+            Fouten in nieuwere webbrowsers krijgen echter voorrang.
+        </div>
+        <![endif]-->
+        <div id="wrapper">
+            <div id="header">
+                {% block header %}
+                    <h1><a href="/">Spelkalender</a></h1>
+                {% endblock %}
+                {% block subheader %}
+                    <h2>voor bord-, kaart- en andere spellen in België en Nederland</h2>
+                {% endblock %}
+            </div>
+            <!-- AddThis Button BEGIN -->
+            <div id="social" class="addthis_toolbox addthis_default_style ">
+                <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                <a class="addthis_button_tweet"></a>
+                <a class="addthis_counter addthis_pill_style"></a>
+            </div>
+            <!-- AddThis Button END -->
+            <div id="breadcrumb">
+                {% block breadcrumb %}
+                    <a href="/">home</a>
+                {% endblock %}
+            </div>
+            <div id="content">
+                {% block content %}
+                    <p>Deze pagina heeft blijkbaar geen inhoud. Oeps, foutje.
+                    Misschien beter <a href="mailto:spelkalender@gmail.com">dit even laten weten</a>.
+                {% endblock %}
+            </div>
+            {% block customSection %}
+            {% endblock %}
+            <div id="footer">
+                <span>
+                    <a href="mailto:spelkalender@gmail.com">contacteer ons</a>
+                </span>
+            </div>
+        </div>
+        <script type="text/javascript" src="/media/js/jquery.js"></script>
+        <script type="text/javascript" src="/media/js/jqueryui.custom.js"></script>
+        <script type="text/javascript" src="/media/js/jquery.ui.datepicker-nl.js"></script>
+        <script type="text/javascript" src="/media/js/main.js"></script>
+        <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4da16f682c0d8fc2"></script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-22032905-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+         </script>
+     </body>
+</html>

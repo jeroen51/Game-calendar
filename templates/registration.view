@@ -1,0 +1,46 @@
+{% extends "main.view" %}
+{% block title %}
+    Registratie gelukt - Spelkalender
+{% endblock %}
+{% block breadcrumb %}
+    <a href="/">home</a> 
+    <span> &gt; </span> <a href="/registratie/">{% if is_authenticated %}registratie gelukt{% else %}registratie{% endif %}</a> {% endblock %}
+{% block content %}
+
+{% if not is_authenticated %}
+    <h2>Registreren</h2>
+    <p>Wil je registreren, dan kan dat hier. Op dit moment biedt het geen enkel voordeel, maar
+    registreer uit morele grond: omdat je deze site steunt.</p>
+    <form class="linearForm" method="post">{% csrf_token %}
+        <div>
+            <label for="id_user_username">Gebruikersnaam (*)</label> {{ register_form.user_username }}
+            {{ register_form.user_username.errors }}
+        </div>
+        <div>
+            <label for="id_user_email">Email (*)</label> {{ register_form.user_email }}
+            {{ register_form.user_email.errors }}
+        </div>
+        <div>
+            <label for="id_user_first_name">Voornaam (*)</label> {{ register_form.user_first_name }}
+            {{ register_form.user_first_name.errors }}
+        </div>
+        <div>
+            <label for="id_user_last_name">Achternaam (*)</label> {{ register_form.user_last_name }}
+            {{ register_form.user_last_name.errors }}
+        </div>
+        <div>
+            <label for="id_user_password">Wachtwoord (*)</label> {{ register_form.user_password }}
+            {{ register_form.user_password.errors }}
+        </div>
+        <div>
+            <label for="id_user_confirm_password">Bevestig wachtwoord (*)</label> {{ register_form.user_confirm_password }}
+            {{ register_form.user_confirm_password.errors }}
+        </div>
+        <button type="submit">registreren</button>
+    </form>
+{% else %}
+    <h2>Registratie gelukt</h2>
+    <p>Dank je. Je bent nu lid bij spelkalender. Dit laat je toe zelf spelevenementen
+    te <a href="/evenement_toevoegen/">melden</a>.</p>
+{% endif %}
+{% endblock %}

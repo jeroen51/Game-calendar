@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+UID: event{{ event.id }}@spelkalender.com
+DTSTAMP:{{ now|date:"Ymd" }}T{{ now|date:"His" }}
+DTSTART:{{ event.start_time|date:"Ymd"}}T{{ event.start_time|date:"His" }}
+DTEND:{{ event.end_time|date:"Ymd"}}T{{ event.end_time|date:"His" }}
+SUMMARY:{{ event.event_name }}
+DESCRIPTION:{{ event.event_description }}
+CATEGORIES:GAMES,ENTERTAINMENT
+END:VEVENT
+END:VCALENDAR

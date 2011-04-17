@@ -1,0 +1,65 @@
+{% extends "main.view" %}
+{% block content %}
+<p>Dit is het prille begin van de spelkalender-site. Het wordt een
+site over <strong>spelevenementen in België en Nederland</strong>.
+Hier ga je een (zo) compleet (mogelijk) overzicht vinden van alle
+evenementen gerelateerd aan bordspellen, kaartspellen, role-playing
+games en wargames.</p>
+
+<h2>De kalender</h2>
+<p>De <a href="/kalender/">kalender</a> geeft een overzicht per maand
+van spelevenementen in de regio. Jouw evenement of spelavond kan hier
+<strong>gratis</strong> bijkomen.</p>
+
+<h2>Spelevenement of spelavond melden</h2>
+<p>Als je een evenement hier aangekondigd wil zien, mail dan een beschrijving
+naar <a href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a> of <a
+href="/evenement_toevoegen/">meld het zelf</a>.</p>
+
+{% if not is_authenticated %}
+
+<h2>Registreren en inloggen</h2>
+<p>Nog geen lid? <a href="/registratie/">Registreer</a> dan eerst. Anders log je hieronder in:</p>
+<form class="linearForm" method="post">{% csrf_token %}
+    <div>
+        <label for="id_username">Gebruikersnaam (*)</label> {{ login_form.username }}
+        {{ login_form.username.errors }}
+    </div>
+    <div>
+        <label for="id_password">Wachtwoord (*)</label> {{ login_form.password }}
+        {{ login_form.password.errors }}
+    </div>
+    <button type="submit">inloggen</button>
+</form>
+{% else %}
+<h2>Uitloggen</h2>
+<p>Je bent ingelogd. Het grote voordeel is dat je nu die irritante formulieren niet moet zien op
+de homepagina. Als je ze nog eens wil invullen <form class="inlineForm" method="post">{% csrf_token %}
+<input type="submit" name="logout" value="log dan uit"></form>.</p>
+{% endif %}
+
+<h2>Meewerken</h2>
+<p>Er valt nog een hoop te doen. Als je wil meewerken, kijk dan op onze
+<a
+href="http://spelkalender.tadalist.com/lists/1873591/public">todo-list</a>.
+Contact opnemen om mee te werken kan ook op <a
+href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a>.</p>
+{% endblock %}
+
+{% block customSection %}
+    <div class="extraSection">
+        <div id="news">
+            <h2>Nieuws</h2>
+            {% for item in news %}
+                <p><strong>{{ item.time }}:</strong> {{ item.description }}</p>
+            {% endfor %}
+            <a href="/nieuws/">bekijk nieuwsarchief</a>
+        </div>
+        <div id="links">
+            <h2>Links</h2>
+            {% for link in links %}
+                <p><a href="{{ link.url }}">{{ link.name }}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

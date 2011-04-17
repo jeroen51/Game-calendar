@@ -1,0 +1,28 @@
+{% extends "main.view" %}
+
+{% block title %}
+    discussie - Spelkalender
+{% endblock %}
+
+{% block breadcrumb %}
+    <a href="/">home</a> <span> &gt; </span> <a href="/discussie/">discussie</a> <span> &gt; </span> 
+    <a href="/discussie/{{ thread.id }}" >{{ thread.title }}</a>
+{% endblock %}
+
+{% block content %}
+    {% if not thread %}
+        <p>De discussie die je zoekt bestaat niet. Misschien waren de meningen
+        unaniem en is iedereen al weer naar huis.</p>
+    {% endif %}
+    {% if messages %}
+        
+        {% for message in messages %}
+            <div class="message">
+                <h3>{{ message.time }} - {{ message.user }}</h3>
+                <div>
+                    {{ message.content }}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

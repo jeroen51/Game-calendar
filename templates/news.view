@@ -1,0 +1,16 @@
+{% extends "main.view" %}
+{% block title %}
+    nieuws - Spelkalender
+{% endblock %}
+
+{% block breadcrumb %}
+    <a href="/">home</a> 
+    <span> &gt; </span> <a href="/nieuws/">nieuws</a>
+{% endblock %}
+
+{% block content %}
+<h2>Nieuws</h2>
+{% for item in news %}
+    <p><strong>{{ item.time }}:</strong> {{ item.description }}</p>
+{% endfor %}
+{% endblock %}

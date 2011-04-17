@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-04-09 08:06-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: forms.py:46
+msgid "The password and confirm password field must match."
+msgstr "Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld moeten overeen komen."
+
+#: timeywimey.py:4
+msgid "January"
+msgstr "januari"
+
+#: timeywimey.py:5
+msgid "February"
+msgstr "februari"
+
+#: timeywimey.py:6
+msgid "March"
+msgstr "maart"
+
+#: timeywimey.py:7
+msgid "April"
+msgstr "april"
+
+#: timeywimey.py:8
+msgid "May"
+msgstr "mei"
+
+#: timeywimey.py:9
+msgid "June"
+msgstr "juni"
+
+#: timeywimey.py:10
+msgid "July"
+msgstr "juli"
+
+#: timeywimey.py:11
+msgid "August"
+msgstr "augustus"
+
+#: timeywimey.py:12
+msgid "September"
+msgstr "september"
+
+#: timeywimey.py:13
+msgid "October"
+msgstr "oktober"
+
+#: timeywimey.py:14
+msgid "November"
+msgstr "november"
+
+#: timeywimey.py:15
+msgid "December"
+msgstr "december"
