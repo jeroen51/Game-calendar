@@ -15,6 +15,8 @@
         unaniem en is iedereen al weer naar huis.</p>
     {% endif %}
     {% if messages %}
+        <h2>{{ thread.title }}</h2>
+        <div class="threadDescription">{{ thread.description }}</div>
         {% for message in messages %}
             <div class="message">
                 <h3>{{ message.time }} - {{ message.user }}</h3>
@@ -25,11 +27,12 @@
         {% endfor %}
     {% endif %}
     {% if message_form and is_authenticated %}
-    <form method="post">{% csrf_token %}
         <div id="messageForm">
-            <label for="id_content">Boodschap</label>{{ message_form.content}} 
-            <button type="submit">boodschap publiceren</button>
+            <form method="post">{% csrf_token %}
+                <h3><label for="id_content">Jouw reactie</label></h3>
+                <div>{{ message_form.content}}</div>
+                <p><button type="submit">reageren</button></p>
+            </form>
         </div>
-    </form>
     {% endif %}
 {% endblock %}
