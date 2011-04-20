@@ -100,3 +100,4 @@ class LoginForm(forms.Form):
 
 class MessageForm(forms.Form):
     content = forms.CharField(max_length=5000, widget=forms.Textarea)
+    contentField = None

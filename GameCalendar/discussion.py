@@ -14,10 +14,16 @@ def thread(request, **args):
     message_form = None
     if thread:
         if request.method == 'POST': 
-            message_form = MessageForm(request.POST) 
+            # Post dictionary needs to be mutable in order to remove the value from the messagebox
+            post_vars = {}
+            for key in request.POST:
+                post_vars[key] = request.POST[key]
+
+            message_form = MessageForm(post_vars) 
             if message_form.is_valid(): 
                 message = Message()
                 message.content = message_form.cleaned_data['content']
+                message_form.data['content'] = ''
                 message.time = datetime.now()
                 message.user = request.user
                 message.thread = thread
