@@ -33,7 +33,7 @@
         <div id="wrapper">
             <div id="header">
                 {% block header %}
-                    <h1><a href="/">{% trans "Game Calendar" %}</a></h1>
+                    <h1><a href="/">{% trans "Spelkalender" noop %}</a></h1>
                 {% endblock %}
                 {% block subheader %}
                     <h2>voor bord-, kaart- en andere spellen in België en Nederland</h2>
