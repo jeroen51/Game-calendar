@@ -8,63 +8,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-09 08:06-0700\n"
+"POT-Creation-Date: 2011-04-24 16:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: forms.py:46
+#: GameCalendar/forms.py:51
 msgid "The password and confirm password field must match."
 msgstr "Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld moeten overeen komen."
 
-#: timeywimey.py:4
+#: GameCalendar/forms.py:90
+#, python-format
+msgid "The account for %s has been disabled."
+msgstr ""
+
+#: GameCalendar/forms.py:93
+#, fuzzy
+msgid "The username and password do not match."
+msgstr "Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld komen niet overeen."
+
+#: GameCalendar/timeywimey.py:4
 msgid "January"
 msgstr "januari"
 
-#: timeywimey.py:5
+#: GameCalendar/timeywimey.py:5
 msgid "February"
 msgstr "februari"
 
-#: timeywimey.py:6
+#: GameCalendar/timeywimey.py:6
 msgid "March"
 msgstr "maart"
 
-#: timeywimey.py:7
+#: GameCalendar/timeywimey.py:7
 msgid "April"
 msgstr "april"
 
-#: timeywimey.py:8
+#: GameCalendar/timeywimey.py:8
 msgid "May"
 msgstr "mei"
 
-#: timeywimey.py:9
+#: GameCalendar/timeywimey.py:9
 msgid "June"
 msgstr "juni"
 
-#: timeywimey.py:10
+#: GameCalendar/timeywimey.py:10
 msgid "July"
 msgstr "juli"
 
-#: timeywimey.py:11
+#: GameCalendar/timeywimey.py:11
 msgid "August"
 msgstr "augustus"
 
-#: timeywimey.py:12
+#: GameCalendar/timeywimey.py:12
 msgid "September"
 msgstr "september"
 
-#: timeywimey.py:13
+#: GameCalendar/timeywimey.py:13
 msgid "October"
 msgstr "oktober"
 
-#: timeywimey.py:14
+#: GameCalendar/timeywimey.py:14
 msgid "November"
 msgstr "november"
 
-#: timeywimey.py:15
+#: GameCalendar/timeywimey.py:15
 msgid "December"
 msgstr "december"
