@@ -8,9 +8,13 @@ class Event(models.Model):
     event_description = models.TextField()
     event_location = models.CharField(max_length=5000)
     event_organizer = models.CharField(max_length=400)
+    isEditable = False
     
     def __str__(self):
         return self.event_name
+
+    def getThreads():
+        return Thread.objects.filter(junctioneventthread__event__id = self.id)
 
 class News(models.Model):
     time = models.DateTimeField()

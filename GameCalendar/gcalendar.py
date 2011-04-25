@@ -11,7 +11,7 @@ class CalendarMonth:
     nextMonth = None
     prevMonth = None
     events = None
-    
+
 def getEventsForMonthAndYear(month, year, user):
     thisMonthStartDate = datetime(year, month, 1)
 
@@ -50,6 +50,6 @@ def getEventsForMonthAndYear(month, year, user):
     
     for event in editableEvents:
         event.isEditable = True
-    
+
     calmonth.events = events 
     return calmonth
