@@ -51,3 +51,18 @@ class Website(models.Model):
 
     def __str__(self):
         return self.name
+
+class JunctionEventThread(models.Model):
+    #Silly English doesn't have decent words for this:
+    #   - Pre-discussion: before the event takes place
+    #   - Post-discussion: after the event takes place
+    #   - Live discussion: while the event takes place
+    THREAD_TYPES = (
+        ('PR', 'Pre-discussion'),
+        ('PO', 'Post-discussion'),
+        ('LI', 'Live discussion'),
+    )
+    event = models.ForeignKey(Event)
+    thread = models.ForeignKey(Thread)
+    thread_type = models.CharField(max_length=2, choices=THREAD_TYPES)
+    
