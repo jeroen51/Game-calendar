@@ -56,6 +56,9 @@ class Website(models.Model):
     def __str__(self):
         return self.name
 
+# TODO: this may have been a mistake. Should we keep the junction table
+#       in favour of the Event-foreign key on the thread-model? If so, we 
+#       need to move the THREAD_TYPES column to the thread model somehow.
 class JunctionEventThread(models.Model):
     #Silly English doesn't have decent words for this:
     #   - Pre-discussion: before the event takes place

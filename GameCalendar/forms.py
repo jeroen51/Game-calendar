@@ -34,6 +34,14 @@ class EventForm(forms.Form):
         acl.event = event
         acl.save()
 
+        for i in range(0, 3):
+            thread = Thread()
+            thread = datetime.now()
+            thread.user = request.user
+            thread.event = event
+            thread.event = 'dicussion ' + `i` + event.event_name
+            thread.save()
+
 class UserForm(forms.Form):
     user_username = forms.CharField(max_length=30)
     user_email = forms.CharField(max_length=300)
@@ -100,4 +108,3 @@ class LoginForm(forms.Form):
 
 class MessageForm(forms.Form):
     content = forms.CharField(max_length=5000, widget=forms.Textarea)
-    contentField = None
