@@ -2,7 +2,7 @@ import utility, gcalendar
 from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime
 from django.template import Context, loader
-from models import Event, News, Website 
+from models import Event, News, Website, Thread
 from django.core.context_processors import csrf
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
@@ -78,6 +78,10 @@ def calendar(request, **args):
         lambda x: 0 < x < 13)
 
     calmonth = gcalendar.getEventsForMonthAndYear(month, year, request.user)
+
+    #TODO: find a better way to add the threads to the event
+    for event in calmonth.events:
+        event.threads = Thread.objects.filter(event__id = event.id)
 
     c = { 'events' : calmonth.events, 
           'year' : year, 

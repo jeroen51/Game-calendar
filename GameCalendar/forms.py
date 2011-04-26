@@ -1,6 +1,6 @@
 from datetime import datetime
 from django import forms
-from models import Event, News, ACLUserEvent
+from models import Event, News, ACLUserEvent, Thread
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
@@ -34,13 +34,15 @@ class EventForm(forms.Form):
         acl.event = event
         acl.save()
 
-        for i in range(0, 3):
+        for i in range(1, 4):
             thread = Thread()
-            thread = datetime.now()
+            thread.time = datetime.now()
             thread.user = request.user
             thread.event = event
-            thread.event = 'dicussion ' + `i` + event.event_name
+            thread.title = _(u'Discussie %s %d') % (`event`, i)
+            thread.description = _(u'Discussie %d over %s') % (i, `event`)
             thread.save()
+
 
 class UserForm(forms.Form):
     user_username = forms.CharField(max_length=30)

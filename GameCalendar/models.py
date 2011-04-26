@@ -1,6 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class News(models.Model):
+    time = models.DateTimeField()
+    description = models.TextField()
+
+    def __str__(self):
+        return self.time.strftime('%d-%m-%Y %H:%M:%S')
+
 class Event(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
@@ -12,16 +19,6 @@ class Event(models.Model):
     
     def __str__(self):
         return self.event_name
-
-    def getThreads():
-        return Thread.objects.filter(junctioneventthread__event__id = self.id)
-
-class News(models.Model):
-    time = models.DateTimeField()
-    description = models.TextField()
-
-    def __str__(self):
-        return self.time.strftime('%d-%m-%Y %H:%M:%S')
 
 class Thread(models.Model):
     time = models.DateTimeField()

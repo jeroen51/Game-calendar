@@ -40,6 +40,11 @@
                 <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
             </tr>
         </table>
+        <div class="discussions">
+            {% for thread in event.threads %}
+                <p><a href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
+            {% endfor %}
+        </div>
         <div class="eventDescription">
            {{ event.event_description }}
         </div>
