@@ -6,7 +6,8 @@ from models import Event, News, Website, Thread
 from django.core.context_processors import csrf
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from forms import EventForm, UserForm, LoginForm
+from forms import UserForm, LoginForm
+from calendarForms import EventForm
 
 def index(request):
     error = ''
@@ -49,7 +50,7 @@ def ical(request, **args):
     if event:
         c = { 'event' : event, 'now' : datetime.now() }
         response =  HttpResponse(t.render(Context(c)), mimetype = "text/ical")
-        response['Content-Disposition'] = 'attachment; filename=%s.ics' % (event.event_name)
+        response['Content-Disposition'] = 'attachment; filename="%s.ics"' % (event.event_name)
         return response
 
 def registration(request, **args):
