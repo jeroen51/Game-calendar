@@ -21,8 +21,19 @@ class Event(models.Model):
         return self.event_name
 
 class Thread(models.Model):
+    #Silly English doesn't have decent words for this:
+    #   - Pre-discussion: before the event takes place
+    #   - Post-discussion: after the event takes place
+    #   - Live discussion: while the event takes place
+    THREAD_TYPES = (
+        ('PR', 'Pre-discussion'),
+        ('PO', 'Post-discussion'),
+        ('LI', 'Live discussion'),
+    )
+
     time = models.DateTimeField()
     event = models.ForeignKey(Event)
+    thread_type = models.CharField(max_length=2, choices=THREAD_TYPES)
     user = models.ForeignKey(User)
     title = models.CharField(max_length=400)
     description = models.TextField()
@@ -52,21 +63,3 @@ class Website(models.Model):
 
     def __str__(self):
         return self.name
-
-# TODO: this may have been a mistake. Should we keep the junction table
-#       in favour of the Event-foreign key on the thread-model? If so, we 
-#       need to move the THREAD_TYPES column to the thread model somehow.
-class JunctionEventThread(models.Model):
-    #Silly English doesn't have decent words for this:
-    #   - Pre-discussion: before the event takes place
-    #   - Post-discussion: after the event takes place
-    #   - Live discussion: while the event takes place
-    THREAD_TYPES = (
-        ('PR', 'Pre-discussion'),
-        ('PO', 'Post-discussion'),
-        ('LI', 'Live discussion'),
-    )
-    event = models.ForeignKey(Event)
-    thread = models.ForeignKey(Thread)
-    thread_type = models.CharField(max_length=2, choices=THREAD_TYPES)
-    

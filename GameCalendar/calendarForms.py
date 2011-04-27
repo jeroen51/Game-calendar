@@ -34,9 +34,9 @@ class EventForm(forms.Form):
         acl.save()
 
         discussiondefs = (
-                            (_(u'Discussion of the upcoming %s'), _(u'Discuss the upcoming event %s before it actually happens.')), 
-                            (_(u'Live discussion of %s'), _(u'Discuss the ongoing event %s live.')),
-                            (_(u'Post-hoc discussion of %s'), _(u'Discuss %s after the facts.'))
+                            ('PR', _(u'Discussion of the upcoming %s'), _(u'Discuss the upcoming event %s before it actually happens.')), 
+                            ('LI', _(u'Live discussion of %s'), _(u'Discuss the ongoing event %s live.')),
+                            ('PO', _(u'Post-hoc discussion of %s'), _(u'Discuss %s after the facts.'))
                          )
 
         for s in discussiondefs:
@@ -44,7 +44,8 @@ class EventForm(forms.Form):
             thread.time = datetime.now()
             thread.user = request.user
             thread.event = event
-            thread.title = s[0] % (event.event_name)
-            thread.description = s[1] % (event.event_name)
+            thread.type = s[0];
+            thread.title = s[1] % (event.event_name)
+            thread.description = s[2] % (event.event_name)
             thread.save()
 
