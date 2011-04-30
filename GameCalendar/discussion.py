@@ -12,7 +12,8 @@ def thread(request, **args):
         thread = Thread.objects.get(id = int(args['id']))
 
     message_form = None
-    if thread:
+    
+    if thread and thread.openForEvent():
         if request.method == 'POST': 
             # Post dictionary needs to be mutable in order to remove the value from the messagebox
             post_vars = {}

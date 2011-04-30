@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 class News(models.Model):
     time = models.DateTimeField()
@@ -38,6 +39,18 @@ class Thread(models.Model):
     title = models.CharField(max_length=400)
     description = models.TextField()
     closed = models.BooleanField(default=True)
+
+    def openForEvent(self):
+        """Opens or closes the discussion based on discussion type and
+           whether or not the event is ongoing. Then returns whether
+           the discussion should be considered open or not."""
+        if self.thread_type == 'PR' and datetime.now() < self.event.start_time:
+            return True
+        if self.thread_type == 'PO' and self.event.end_time < datetime.now():
+            return True
+        if self.thread_type == 'LI' and self.event.start_time <= datetime.now() <= self.event.end_time:
+            return True
+        return False
 
     def __str__(self):
         return self.title

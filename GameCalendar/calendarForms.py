@@ -44,7 +44,7 @@ class EventForm(forms.Form):
             thread.time = datetime.now()
             thread.user = request.user
             thread.event = event
-            thread.type = s[0];
+            thread.thread_type = s[0];
             thread.title = s[1] % (event.event_name)
             thread.description = s[2] % (event.event_name)
             thread.save()
