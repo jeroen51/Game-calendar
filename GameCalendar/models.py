@@ -37,6 +37,7 @@ class Thread(models.Model):
     user = models.ForeignKey(User)
     title = models.CharField(max_length=400)
     description = models.TextField()
+    closed = models.BooleanField(default=True)
 
     def __str__(self):
         return self.title
