@@ -42,7 +42,8 @@
         </table>
         <div class="discussions">
             {% for thread in event.threads %}
-                <p><a href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
+                <p><a class="{% if thread.closed %}threadClosed{% else %}threadOpen{% endif %}" 
+                      href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
             {% endfor %}
         </div>
         <div class="eventDescription">

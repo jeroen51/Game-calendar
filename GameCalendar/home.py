@@ -83,6 +83,8 @@ def calendar(request, **args):
     #TODO: find a better way to add the threads to the event
     for event in calmonth.events:
         event.threads = Thread.objects.filter(event__id = event.id)
+        for thread in event.threads:
+            thread.openForEvent()
 
     c = { 'events' : calmonth.events, 
           'year' : year, 
@@ -95,7 +97,6 @@ def calendar(request, **args):
           'nextmonthname' : calmonth.nextMonthName,
           'prevmonthname' : calmonth.prevMonthName }
     return HttpResponse(t.render(Context(c)))
-
 
 def addevent(request):
     error = ''

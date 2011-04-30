@@ -38,6 +38,7 @@ table.eventData td      { text-align: left; padding: 5px; }
 .eventDescription       { margin: 15px 0; }
 .eventEdit              { padding: 5px; background-color: #99d8ff; border: 1px solid #99c8ff; }
 .calendarNavigation     { margin: 15px 0; }
+.threadClosed           { color: #ccc; }
 
 /* footer */
 #footer a               { color: #fff; }
