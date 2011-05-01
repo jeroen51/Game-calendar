@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-04-27 20:19+0200\n"
+"POT-Creation-Date: 2011-05-01 14:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,94 +18,106 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: GameCalendar/calendarForms.py:37
+#: calendarForms.py:37
 #, python-format
 msgid "Discussion of the upcoming %s"
 msgstr "Voorbespreking van %s"
 
-#: GameCalendar/calendarForms.py:37
+#: calendarForms.py:37
 #, python-format
 msgid "Discuss the upcoming event %s before it actually happens."
 msgstr "Bespreek hier %s voor het plaats vindt."
 
-#: GameCalendar/calendarForms.py:38
+#: calendarForms.py:38
 #, python-format
 msgid "Live discussion of %s"
 msgstr "Livebespreking van %s"
 
-#: GameCalendar/calendarForms.py:38
+#: calendarForms.py:38
 #, python-format
 msgid "Discuss the ongoing event %s live."
 msgstr "Bespreek %s terwijl het plaats heeft."
 
-#: GameCalendar/calendarForms.py:39
+#: calendarForms.py:39
 #, python-format
 msgid "Post-hoc discussion of %s"
 msgstr "Nabespreking van %s"
 
-#: GameCalendar/calendarForms.py:39
+#: calendarForms.py:39
 #, python-format
 msgid "Discuss %s after the facts."
 msgstr "Bespreek %s na de feiten."
 
-#: GameCalendar/forms.py:22
+#: forms.py:22
 msgid "The password and confirm password field must match."
 msgstr "Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld moeten overeen komen."
 
-#: GameCalendar/forms.py:61
+#: forms.py:61
 #, python-format
 msgid "The account for %s has been disabled."
 msgstr "De account voor %s werd afgesloten en kan niet meer gebruikt worden."
 
-#: GameCalendar/forms.py:64
+#: forms.py:64
 #, fuzzy
 msgid "The username and password do not match."
 msgstr "De gebruikersnaam en het wachtwoord komen niet overeen."
 
-#: GameCalendar/timeywimey.py:4
+#: models.py:71
+msgid "Sorry, the discussion hasn't opened yet. Check back later."
+msgstr "Excuus, de discussie is nog niet geopend. Kom later nog 'ns terug."
+
+#: models.py:73
+msgid "The discussion has already been closed. Feel free to read the old comments"
+msgstr "De discussie is reeds afgesloten. Lees gerust de oude berichten nog 'ns door."
+
+#: models.py:74
+msgid "The discussion is open, feel free to participate."
+msgstr "De discussie is geopend. Neem gerust deel."
+
+#: timeywimey.py:4
 msgid "January"
 msgstr "januari"
 
-#: GameCalendar/timeywimey.py:5
+#: timeywimey.py:5
 msgid "February"
 msgstr "februari"
 
-#: GameCalendar/timeywimey.py:6
+#: timeywimey.py:6
 msgid "March"
 msgstr "maart"
 
-#: GameCalendar/timeywimey.py:7
+#: timeywimey.py:7
 msgid "April"
 msgstr "april"
 
-#: GameCalendar/timeywimey.py:8
+#: timeywimey.py:8
 msgid "May"
 msgstr "mei"
 
-#: GameCalendar/timeywimey.py:9
+#: timeywimey.py:9
 msgid "June"
 msgstr "juni"
 
-#: GameCalendar/timeywimey.py:10
+#: timeywimey.py:10
 msgid "July"
 msgstr "juli"
 
-#: GameCalendar/timeywimey.py:11
+#: timeywimey.py:11
 msgid "August"
 msgstr "augustus"
 
-#: GameCalendar/timeywimey.py:12
+#: timeywimey.py:12
 msgid "September"
 msgstr "september"
 
-#: GameCalendar/timeywimey.py:13
+#: timeywimey.py:13
 msgid "October"
 msgstr "oktober"
 
-#: GameCalendar/timeywimey.py:14
+#: timeywimey.py:14
 msgid "November"
 msgstr "november"
 
-#: GameCalendar/timeywimey.py:15
+#: timeywimey.py:15
 msgid "December"
 msgstr "december"

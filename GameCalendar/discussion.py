@@ -32,7 +32,10 @@ def thread(request, **args):
         else:
             message_form = MessageForm()
 
-    c = { 'thread' : thread,
+    c = { 
+          'thread' : thread,
+          'thread_message' : thread.getStatusMessage(),
+          'thread_status' : thread.getStatus(),
           'messages' : None,
           'message_form' : message_form,
           'is_authenticated' : request.user.is_authenticated()

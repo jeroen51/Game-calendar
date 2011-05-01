@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, timedelta
+from django.utils.translation import ugettext as _
 
 class News(models.Model):
     time = models.DateTimeField()
@@ -38,22 +39,42 @@ class Thread(models.Model):
     user = models.ForeignKey(User)
     title = models.CharField(max_length=400)
     description = models.TextField()
-    closed = models.BooleanField(default=True)
+    closed = True
 
     def openForEvent(self):
-        """Opens or closes the discussion based on discussion type and
-           whether or not the event is ongoing. Then returns whether
-           the discussion should be considered open or not."""
-        isopen = False
-        if self.thread_type == 'PR' and datetime.now() < self.event.start_time + timedelta(hours=3):
-            isopen = True
-        if self.thread_type == 'PO' and self.event.end_time < datetime.now():
-            isopen = True
-        if self.thread_type == 'LI' and self.event.start_time <= datetime.now() <= self.event.end_time + timedelta(hours=5):
-            isopen = True
-        self.closed = not isopen 
-        self.save()
-        return isopen 
+        """The same as getStatus, but returns a simple boolean value."""
+
+        if self.getStatus() == 'open':
+            return True
+        return False 
+
+    def getStatus(self):
+        """Returns the discussion status as a string. Values are: 'early', 'late' and 'open'"""
+        
+        start = {
+                    'PO' : self.event.end_time,
+                    'LI' : self.event.start_time
+                }
+        end = {
+                'PR' : self.event.start_time + timedelta(hours=3),
+                'LI' : self.event.end_time + timedelta(hours=3)
+              }
+        if self.thread_type in start and datetime.now() < start[self.thread_type]:
+            self.closed = True
+            return 'early'
+        if self.thread_type in end and datetime.now() > end[self.thread_type]:
+            self.closed = True
+            return 'late'
+        self.closed = False
+        return 'open' 
+
+    def getStatusMessage(self):
+        current_status = self.getStatus()
+        if current_status == 'early':
+            return _("Sorry, the discussion hasn't opened yet. Check back later.")
+        if current_status == 'late':
+            return _("The discussion has already been closed. Feel free to read the old comments")
+        return _("The discussion is open, feel free to participate.")
 
     def __str__(self):
         return self.title

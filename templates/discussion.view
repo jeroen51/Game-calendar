@@ -15,6 +15,7 @@
         unaniem en is iedereen al weer naar huis.</p>
     {% endif %}
     <h2>{{ thread.title }}</h2>
+    <div class="threadMessage {{ thread_status }}">{{ thread_message }}</div>
     {% if messages %}
         <div class="threadDescription">{{ thread.description }}</div>
         {% for message in messages %}
@@ -26,7 +27,9 @@
             </div>
         {% endfor %}
     {% else %}
-        <p>Nog geen boodschappen in deze discussie. Je kan nog de eerste zijn.</p>
+        {% if not thread.closed %}
+            <p>Nog geen boodschappen in deze discussie. Je kan nog de eerste zijn.</p>
+        {% endif %}
     {% endif %}
     {% if message_form and is_authenticated %}
         <div id="messageForm">

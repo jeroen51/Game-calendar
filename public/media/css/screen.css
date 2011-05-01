@@ -40,6 +40,11 @@ table.eventData td      { text-align: left; padding: 5px; }
 .calendarNavigation     { margin: 15px 0; }
 .threadClosed           { color: #ccc; }
 
+/* discussion */
+.threadMessage          { padding: 5px; }
+.late, .early           { background-color: #f9a; }
+.open                   { background-color: #99d8ff; }
+
 /* footer */
 #footer a               { color: #fff; }
 
