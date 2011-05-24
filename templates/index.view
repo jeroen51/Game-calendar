@@ -33,9 +33,8 @@ href="/evenement_toevoegen/">meld het zelf</a>.</p>
 </form>
 {% else %}
 <h2>Uitloggen</h2>
-<p>Je bent ingelogd. Het grote voordeel is dat je nu die irritante formulieren niet moet zien op
-de homepagina. Als je ze nog eens wil invullen <form class="inlineForm" method="post">{% csrf_token %}
-<input type="submit" name="logout" value="log dan uit"></form>.</p>
+<p>Je bent ingelogd. Je kan nu zelf evenementen aankondigen, reacties bij evenementen plaatsen
+ of <form class="inlineForm" method="post">{% csrf_token %} <input type="submit" name="logout" value="uitloggen"></form>.</p>
 {% endif %}
 
 <h2>Meewerken</h2>
