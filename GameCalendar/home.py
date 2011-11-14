@@ -50,7 +50,7 @@ def ical(request, **args):
     if event:
         c = { 'event' : event, 'now' : datetime.now() }
         response =  HttpResponse(t.render(Context(c)), mimetype = "text/ical")
-        response['Content-Disposition'] = 'attachment; filename="%s.ics"' % (event.event_name)
+        response['Content-Disposition'] = 'attachment; filename="%s.ics"' % (repr(event.event_name)[2:-1]) #convert to unicode-escaped string, then strip out the escape code
         return response
 
 def registration(request, **args):
