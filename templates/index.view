@@ -37,9 +37,9 @@ naar <a href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a>.</p>
     <button type="submit">inloggen</button>
 </form>
 {% else %}
-<h2>Afloggen</h2>
+<h2>Uitloggen</h2>
 <p><form class="inlineForm" method="post">{% csrf_token %}
-<input type="submit" name="logout" value="log af"></form></p>
+<input type="submit" name="logout" value="log uit"></form></p>
 {% endif %}
 
 <h2>Op de hoogte blijven</h2>

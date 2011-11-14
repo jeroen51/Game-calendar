@@ -41,14 +41,14 @@
                 <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
             </tr>
         </table>
+        <div class="eventDescription">
+           {{ event.event_description }}
+        </div>
         <div class="discussions">
             {% for thread in event.threads %}
                 <p><a class="{% if thread.closed %}threadClosed{% else %}threadOpen{% endif %}" 
                       href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
             {% endfor %}
-        </div>
-        <div class="eventDescription">
-           {{ event.event_description }}
         </div>
         {% if event.isEditable %}
             <div class="eventEdit"><a href="/evenement/{{ event.id }}/">aanpassen</a></div>
