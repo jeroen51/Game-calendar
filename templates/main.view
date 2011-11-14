@@ -30,7 +30,7 @@
             Fouten in nieuwere webbrowsers krijgen echter voorrang.
         </div>
         <![endif]-->
-        <div {% block wrapperId %} id="wrapper" {% endblock %}>
+        <div id="wrapper">
             <div id="header">
                 {% block header %}
                     <h1><a href="/">{% trans "Spelkalender" noop %}</a></h1>
