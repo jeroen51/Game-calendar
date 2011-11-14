@@ -16,11 +16,11 @@
                 {{ form.event_name }}
                 <label for="id_event_organizer">en wordt georganiseerd door</label>
                 {{ form.event_organizer }}.</p>
-                <p><label for="id_start_date">Het gaat van start</label>
+                <p><label for="id_start_date">Het gaat van start om </label>
                 <span class="datepicker">{{ form.start_date }}</span>
                 <label for="id_start_time">om</label>
                 {{ form.start_time }}</p>
-                <p><label for="id_end_date">en eindigt</label>
+                <p><label for="id_end_date">en eindigt om </label>
                 <span class="datepicker">{{ form.end_date }}</span>
                 <label for="id_end_time">om</label>
                 {{ form.end_time }}
