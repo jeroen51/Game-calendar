@@ -71,6 +71,14 @@ def registration(request, **args):
     c.update(csrf(request))
     return HttpResponse(t.render(Context(c)))
 
+class CalendarDay:
+    def __init__(self):
+        self.events = []
+
+class GapDay:
+    def __init__(self):
+        self.events = []
+
 def calendar(request, **args):
     t = loader.get_template('events.view')
 
@@ -85,8 +93,24 @@ def calendar(request, **args):
         event.threads = Thread.objects.filter(event__id = event.id)
         for thread in event.threads:
             thread.openForEvent()
-
-    c = { 'events' : calmonth.events, 
+    
+    days = {}
+    for event in calmonth.events:
+        if not event.start_time.day in days:
+            days[event.start_time.day] = CalendarDay()
+        days[event.start_time.day].events.append(event)
+    
+    calendarDays = []
+    lastWasGapDay = False
+    for i in range(32):
+        if i in days:
+            calendarDays.append(days[i])
+            lastWasGapDay = False
+        elif not lastWasGapDay:
+            calendarDays.append(GapDay())
+            lastWasGapDay = True
+        
+    c = { 'days' : calendarDays,
           'year' : year, 
           'month' : month,
           'monthname' : calmonth.monthName,
