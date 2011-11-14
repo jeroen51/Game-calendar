@@ -21,6 +21,7 @@
     {% if month or year %} in {% endif %}
     {% if month %} {{ monthname }} {% endif %} 
     {% if year %}{{ year }} {% endif %} </h1>
+<div><span class="addEvent"><a href="/evenement_toevoegen/">evenement toevoegen</a></span></div>
 {% if not events %}
     <p>De kalender is leeg. Er staat helemaal niks op. 
     <a href="/evenement_toevoegen/">Meld</a> ons een
