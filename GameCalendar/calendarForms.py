@@ -13,6 +13,17 @@ class EventForm(forms.Form):
     event_organizer = forms.CharField(max_length=5000)
     event_description = forms.CharField(max_length=20000, widget=forms.Textarea)
 
+    def clean(self):
+        """check whether the start time comes before the end time"""
+        cleaned_data = self.cleaned_data
+        startTime = cleaned_data['start_time']
+        endTime = cleaned_data['end_time']
+        if startTime > endTime:
+            msg = _(u'The start time must occur before the end time of the event')
+            self._errors['start_time'] = self.error_class([msg])
+
+        return cleaned_data 
+
     def save(self, request):
         event = Event()
         start_date = self.cleaned_data['start_date']

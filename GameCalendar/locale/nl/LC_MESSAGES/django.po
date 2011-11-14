@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-01 14:13+0200\n"
+"POT-Creation-Date: 2011-11-14 19:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,39 +18,44 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: calendarForms.py:37
+#: calendarForms.py:22
+msgid "The start time must occur before the end time of the event"
+msgstr "Het beginuur moet voorafgaan aan het einduur."
+
+#: calendarForms.py:46
 #, python-format
 msgid "Discussion of the upcoming %s"
 msgstr "Voorbespreking van %s"
 
-#: calendarForms.py:37
+#: calendarForms.py:46
 #, python-format
 msgid "Discuss the upcoming event %s before it actually happens."
 msgstr "Bespreek hier %s voor het plaats vindt."
 
-#: calendarForms.py:38
+#: calendarForms.py:47
 #, python-format
 msgid "Live discussion of %s"
 msgstr "Livebespreking van %s"
 
-#: calendarForms.py:38
+#: calendarForms.py:47
 #, python-format
 msgid "Discuss the ongoing event %s live."
 msgstr "Bespreek %s terwijl het plaats heeft."
 
-#: calendarForms.py:39
+#: calendarForms.py:48
 #, python-format
 msgid "Post-hoc discussion of %s"
 msgstr "Nabespreking van %s"
 
-#: calendarForms.py:39
+#: calendarForms.py:48
 #, python-format
 msgid "Discuss %s after the facts."
 msgstr "Bespreek %s na de feiten."
 
 #: forms.py:22
 msgid "The password and confirm password field must match."
-msgstr "Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld moeten overeen komen."
+msgstr ""
+"Het 'wachtwoord'- en 'wachtwoord bevestigen'-veld moeten overeen komen."
 
 #: forms.py:61
 #, python-format
@@ -62,15 +67,17 @@ msgstr "De account voor %s werd afgesloten en kan niet meer gebruikt worden."
 msgid "The username and password do not match."
 msgstr "De gebruikersnaam en het wachtwoord komen niet overeen."
 
-#: models.py:71
+#: models.py:74
 msgid "Sorry, the discussion hasn't opened yet. Check back later."
 msgstr "Excuus, de discussie is nog niet geopend. Kom later nog 'ns terug."
 
-#: models.py:73
-msgid "The discussion has already been closed. Feel free to read the old comments"
-msgstr "De discussie is reeds afgesloten. Lees gerust de oude berichten nog 'ns door."
+#: models.py:76
+msgid ""
+"The discussion has already been closed. Feel free to read the old comments"
+msgstr ""
+"De discussie is reeds afgesloten. Lees gerust de oude berichten nog 'ns door."
 
-#: models.py:74
+#: models.py:77
 msgid "The discussion is open, feel free to participate."
 msgstr "De discussie is geopend. Neem gerust deel."
 
