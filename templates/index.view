@@ -1,20 +1,25 @@
 {% extends "main.view" %}
 {% block content %}
-<p>Dit is het prille begin van de spelkalender-site. Het wordt een
-site over <strong>spelevenementen in België en Nederland</strong>.
-Hier ga je een (zo) compleet (mogelijk) overzicht vinden van alle
+<p>Spelkalender is een piepjonge site die je op de hoogte houdt van <strong>spelevenementen in België en Nederland</strong>.
+Hier vind je een overzicht van
 evenementen gerelateerd aan bordspellen, kaartspellen, role-playing
 games en wargames.</p>
+<p>Het is nog <em>early days</em> dus de site is nog niet erg volledig. Wil je op de hoogte blijven? <a href="http://eepurl.com/g6Q5c">Schrijf je in</a> op onze nieuwsbrief.</p>
 
-<h2>De kalender</h2>
+<h2><a href="/kalender/">De kalender</a></h2>
 <p>De <a href="/kalender/">kalender</a> geeft een overzicht per maand
 van spelevenementen in de regio. Jouw evenement of spelavond kan hier
 <strong>gratis</strong> bijkomen.</p>
 
-<h2>Spelevenement of spelavond melden</h2>
-<p>Als je een evenement hier aangekondigd wil zien, mail dan een beschrijving
-naar <a href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a> of <a
-href="/evenement_toevoegen/">meld het zelf</a>.</p>
+<h2>Hoe werkt alles?</h2>
+<p>Dit zijn videootjes die je tonen hoe de site werkt. Speel ze af op volledige grootte om de tekst te kunnen lezen.</p>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/xfRr8qHTIXk" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/jaxTIbKRoOU" frameborder="0" allowfullscreen></iframe>
+<h2><a
+href="/evenement_toevoegen/">Spelevenement of spelavond melden</a></h2>
+<p>Staat er een evenement niet op, <a
+href="/evenement_toevoegen/">meld het zelf</a> of mail een beschrijving
+naar <a href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a>.</p>
 
 {% if not is_authenticated %}
 
@@ -32,18 +37,20 @@ href="/evenement_toevoegen/">meld het zelf</a>.</p>
     <button type="submit">inloggen</button>
 </form>
 {% else %}
-<h2>Uitloggen</h2>
-<p>Je bent ingelogd. Het grote voordeel is dat je nu die irritante formulieren niet moet zien op
-de homepagina. Als je ze nog eens wil invullen <form class="inlineForm" method="post">{% csrf_token %}
-<input type="submit" name="logout" value="log dan uit"></form>.</p>
+<h2>Afloggen</h2>
+<p><form class="inlineForm" method="post">{% csrf_token %}
+<input type="submit" name="logout" value="log af"></form>.</p>
 {% endif %}
 
+<h2>Op de hoogte blijven</h2>
+<p><a href="http://eepurl.com/g6Q5c">Schrijf je in</a> op onze nieuwsbrief. Je kan ook onderaan de pagina de nieuwsberichten bekijken.</p>
 <h2>Meewerken</h2>
 <p>Er valt nog een hoop te doen. Als je wil meewerken, kijk dan op onze
 <a
 href="http://spelkalender.tadalist.com/lists/1873591/public">todo-list</a>.
 Contact opnemen om mee te werken kan ook op <a
 href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a>.</p>
+<p>Als je wil meewerken aan de programmatie, kijk dan op onze <a href="https://github.com/jeroen51/Game-calendar">github-pagina</a>. Spelkalender werkt op het Django-framework, is geschreven in Python en draait tegen een MySQL-database. De software is volledig open source.</p>
 {% endblock %}
 
 {% block customSection %}

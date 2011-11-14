@@ -24,10 +24,10 @@
         <![endif]-->
         <!--[if IE 7]>
         <div class="iewarning">
-            Je Internet Explorer is 3 jaar oud. Spelkalender
+            Je Internet Explorer is 4 jaar oud. Spelkalender
             wordt niet getest voor Internet Explorer 7, maar <a
             href="mailto:spelkalender@gmail.com">meld</a> ons fouten die je tegenkomt.
-            Fouten in nieuwere webbrowsers krijgen echter voorrang.
+            Fouten in nieuwere webbrowsers krijgen voorrang.
         </div>
         <![endif]-->
         <div id="wrapper">
@@ -62,6 +62,9 @@
             <div id="footer">
                 <span>
                     <a href="mailto:spelkalender@gmail.com">contacteer ons</a>
+                </span> | 
+                <span>
+                    <a href="http://eepurl.com/g6Q5c">schrijf in op de nieuwsbrief<a>
                 </span>
             </div>
         </div>
