@@ -10,6 +10,8 @@
     {% if month %}<span> &gt; </span> <a href="/kalender/{{year}}/{{ month }}/">{{ monthname }}</a> {% endif %} 
 {% endblock %}
 
+{% block wrapperId %} id="calendarWrapper" {% endblock %}
+
 {% block content %}
 <div class="calendarNavigation">
     <strong>Ga naar:</strong> <a href="/kalender/{{ prevyear }}/{{ prevmonth }}/">{{ prevmonthname }} {{ prevyear }}</a>
@@ -24,34 +26,16 @@
     <a href="/evenement_toevoegen/">Meld</a> ons een
     evenement of keer later nog eens terug.</p>
 {% endif %}
-{% for event in events %}
-    <div class="event">
-        <h2>{{ event.event_name }}</h2>
-        <table class="eventData">
-            <tr>
-                <th>Begin: </th><td>{{ event.start_time }}</td>
-                <th>Eind: </th><td>{{ event.end_time }}</td>
-            </tr>
-            <tr>
-                <th>Organisator: </th><td>{{ event.event_organizer }}</td>
-                <th>Exporteren: </th><td><a href="/ical/{{ event.id }}/">downloaden</a></td>
-            </tr>
-            <tr>
-                <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
-            </tr>
-        </table>
-        <div class="discussions">
-            {% for thread in event.threads %}
-                <p><a class="{% if thread.closed %}threadClosed{% else %}threadOpen{% endif %}" 
-                      href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
-            {% endfor %}
+{% for day in days %}
+    <div class="calendarDay {% for type in day.types %}{{ type }}{% endfor %}">
+    {% for event in day.events %}
+        <div class="event">
+            <p><strong>{{ event.event_name }}</strong></p>
+            <p>Door: {{ event.event_organizer }}</p>
+            <p>Plaats: {{ event.event_location }}</p>
+            <p>{{ event.start_time }} - {{ event.end_time }}</p>
         </div>
-        <div class="eventDescription">
-           {{ event.event_description }}
-        </div>
-        {% if event.isEditable %}
-            <div class="eventEdit"><a href="/evenement/{{ event.id }}/">aanpassen</a></div>
-        {% endif %}
+    {% endfor %}
     </div>
 {% endfor %}
 <div class="calendarNavigation">
