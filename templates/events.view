@@ -21,11 +21,16 @@
     {% if month or year %} in {% endif %}
     {% if month %} {{ monthname }} {% endif %} 
     {% if year %}{{ year }} {% endif %} </h1>
+{% if not events %}
+    <p>De kalender is leeg. Er staat helemaal niks op. 
+    <a href="/evenement_toevoegen/">Meld</a> ons een
+    evenement of keer later nog eens terug.</p>
+{% endif %}
 {% for day in days %}
     <div class="calendarDay {% for type in day.types %}{{ type }}{% endfor %}">
     {% for event in day.events %}
         <div class="event">
-            <p><strong><a href="/evenement/{{event.id}}">{{ event.event_name }}</a></strong></p>
+            <p><strong>{{ event.event_name }}</strong></p>
             <p>Door: {{ event.event_organizer }}</p>
             <p>Plaats: {{ event.event_location }}</p>
             <p>{{ event.start_time }} - {{ event.end_time }}</p>
