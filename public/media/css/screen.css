@@ -5,7 +5,6 @@ h2                      { font-size: 1.2em; padding-top: 20px; }
 
 /* structure */
 #wrapper                { margin: 0 auto; min-width: 600px; max-width: 1000px; width: 65%; background-color: #fff; height: 100%; }
-#calendarWrapper        { width: 100%; background-color: #fff; height: 100%; }
 #breadcrumb             { padding: 10px 20px; }
 #header                 { padding: 10px 20px; 
                           background: #9dd53a; /* old browsers */
@@ -32,8 +31,6 @@ h2                      { font-size: 1.2em; padding-top: 20px; }
 #links                  {  padding: 0 0 0 2%; display: table-cell; }
 
 /* calendar */
-.calendarDay            { width: 10%; padding: 10px 2%; border-left: 1px solid #888; display: table-cell; }
-
 table.eventData         { background-color: #d8d8ff; border: 1px solid #c8c8ff; width: 100%; }
 table.eventData th, 
 table.eventData td      { text-align: left; padding: 5px; }
