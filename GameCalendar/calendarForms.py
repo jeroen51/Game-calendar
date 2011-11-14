@@ -12,6 +12,7 @@ class EventForm(forms.Form):
     event_location = forms.CharField(max_length=5000, widget=forms.Textarea)
     event_organizer = forms.CharField(max_length=5000)
     event_description = forms.CharField(max_length=20000, widget=forms.Textarea)
+    event_website = forms.CharField(max_length=250)
 
     def clean(self):
         """check whether the start time comes before the end time"""
@@ -35,6 +36,7 @@ class EventForm(forms.Form):
         event.event_location = self.cleaned_data['event_location']
         event.event_organizer = self.cleaned_data['event_organizer']
         event.event_description = self.cleaned_data['event_description']
+        event.event_website = self.cleaned_data['event_website']
         event.save()
 
         acl = ACLUserEvent()

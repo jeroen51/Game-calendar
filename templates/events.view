@@ -40,6 +40,11 @@
             <tr>
                 <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
             </tr>
+            {% if event.event_website %}
+            <tr>
+                <td colspan="2"><a href="{{ event.event_website }}">Meer info</a></td>
+            </tr>
+            {% endif %}
         </table>
         <div class="eventDescription">
            {{ event.event_description }}

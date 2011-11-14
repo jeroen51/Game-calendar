@@ -17,6 +17,7 @@ class Event(models.Model):
     event_description = models.TextField()
     event_location = models.CharField(max_length=5000)
     event_organizer = models.CharField(max_length=400)
+    event_website = models.CharField(max_length=250)
     isEditable = False
     
     def __str__(self):
