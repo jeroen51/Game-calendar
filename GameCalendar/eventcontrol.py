@@ -26,4 +26,7 @@ def eventDetails(request, **args):
     return HttpResponse(t.render(Context(c)))
 
 def can_delete(user, args):
-    return user.is_authenticated() and Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
+    try:
+        return user.is_authenticated() and Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
+    except DoesNotExist:
+        return False
