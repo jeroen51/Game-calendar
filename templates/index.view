@@ -2,7 +2,7 @@
 
 {% block breadcrumb %}
     <a href="/">home</a> 
-    <span> &gt; </span> <a href="/over/">over spelkalender</a> {% endblock %}
+    <span> &gt; </span> <a href="/over/">over spelkalender</a> 
 {% endblock %}
 
 {% block content %}
