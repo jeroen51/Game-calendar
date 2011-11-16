@@ -120,7 +120,7 @@ def calendar(request, **args):
     c = { 'days' : calendarDays,
           'year' : year, 
           'month' : month,
-          'today' : datetime.now().date,
+          'today' : datetime.now().date(),
           'monthname' : calmonth.monthName,
           'nextyear' : calmonth.nextYear,
           'prevyear' : calmonth.prevYear,
