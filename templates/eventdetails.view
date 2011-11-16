@@ -12,6 +12,39 @@
 
 {% block content %}
     <h2>{{ event.event_name }}</h2>
+    <div class="event">
+        <h2>{{ event.event_name }}</h2>
+        <table class="eventData">
+            <tr>
+                <th>Begin: </th><td>{{ event.start_time }}</td>
+                <th>Eind: </th><td>{{ event.end_time }}</td>
+            </tr>
+            <tr>
+                <th>Organisator: </th><td>{{ event.event_organizer }}</td>
+                <th>Exporteren: </th><td><a href="/ical/{{ event.id }}/">downloaden</a></td>
+            </tr>
+            <tr>
+                <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
+            </tr>
+            {% if event.event_website %}
+            <tr>
+                <td colspan="2"><a href="{{ event.event_website }}">Meer info</a></td>
+            </tr>
+            {% endif %}
+        </table>
+        <div class="eventDescription">
+           {{ event.event_description }}
+        </div>
+        <div class="discussions">
+            {% for thread in event.threads %}
+                <p><a class="{% if thread.closed %}threadClosed{% else %}threadOpen{% endif %}" 
+                      href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
+            {% endfor %}
+        </div>
+        {% if event.isEditable %}
+            <div class="eventEdit"><a href="/evenement/{{ event.id }}/">aanpassen</a></div>
+        {% endif %}
+    </div>
     <form method="post">
         {% csrf_token %}
         <input type="submit" name="delete" value="blaas dit evenement af" >
