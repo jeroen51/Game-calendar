@@ -31,7 +31,7 @@
                 <p><strong>{{ event.event_name }}</strong></p>
                 <p>Door: {{ event.event_organizer }}</p>
                 <p>Om: {{ event.start_time.time }} - {{ event.end_time.time }}</p>
-                <div>{{ event.event_description|truncatewords:20}}</div>
+                <div>{{ event.event_description|truncatewords:60}}</div>
                 <p><a href="/evenement/{{ event.id }}/">meer informatie</a></p>
             </div>
         {% endfor %}
