@@ -76,8 +76,11 @@ def registration(request, **args):
     return HttpResponse(t.render(Context(c)))
 
 class CalendarDay:
-    def __init__(self):
+    date = None
+
+    def __init__(self, date):
         self.events = []
+        self.date = date
 
 class GapDay:
     def __init__(self):
@@ -101,7 +104,7 @@ def calendar(request, **args):
     days = {}
     for event in calmonth.events:
         if not event.start_time.day in days:
-            days[event.start_time.day] = CalendarDay()
+            days[event.start_time.day] = CalendarDay(event.start_time.date)
         days[event.start_time.day].events.append(event)
     
     calendarDays = []
@@ -117,6 +120,7 @@ def calendar(request, **args):
     c = { 'days' : calendarDays,
           'year' : year, 
           'month' : month,
+          'today' : datetime.now().date,
           'monthname' : calmonth.monthName,
           'nextyear' : calmonth.nextYear,
           'prevyear' : calmonth.prevYear,

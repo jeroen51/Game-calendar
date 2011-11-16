@@ -40,12 +40,11 @@
                       href="/discussie/{{ thread.id }}">{{ thread.title }}</a></p>
             {% endfor %}
         </div>
-        {% if event.isEditable %}
-            <div class="eventEdit"><a href="/evenement/{{ event.id }}/">aanpassen</a></div>
-        {% endif %}
     </div>
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" name="delete" value="blaas dit evenement af" >
-    </form>
+    {% if can_delete %}
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" name="delete" value="blaas dit evenement af" >
+        </form>
+    {% endif %}
 {% endblock %}

@@ -21,17 +21,26 @@
     {% if month or year %} in {% endif %}
     {% if month %} {{ monthname }} {% endif %} 
     {% if year %}{{ year }} {% endif %} </h1>
-<div><span class="addEvent"><a href="/evenement_toevoegen/">evenement toevoegen</a></span></div>
 {% for day in days %}
     <div class="calendarDay {% for type in day.types %}{{ type }}{% endfor %}">
-    {% for event in day.events %}
-        <div class="event">
-            <p><strong>{{ event.event_name }}</strong></p>
-            <p>Door: {{ event.event_organizer }}</p>
-            <p>Plaats: {{ event.event_location|linebreaks }}</p>
-            <p>{{ event.start_time }} - {{ event.end_time }}</p>
+    {% if day.events %}
+        <h2>{{ day.date|date:"d M"|lower }} </h2>
+        <p>({% if day.date > today %}{{ day.date|timeuntil }}{% else %}{% if day.date = today %}vandaag{% else %}{{ day.date|timesince }}{% endif %}{% endif %})</p>
+        {% for event in day.events %}
+            <div class="event">
+                <p><strong>{{ event.event_name }}</strong></p>
+                <p>Door: {{ event.event_organizer }}</p>
+                <p>Om: {{ event.start_time.time }} - {{ event.end_time.time }}</p>
+                <div>{{ event.event_description|truncatewords:20}}</div>
+                <p><a href="/evenement/{{ event.id }}/">meer informatie</a></p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div>
+            <h2>Lege periode</h2>
+            <span class="addEvent"><a href="/evenement_toevoegen/">evenement toevoegen</a></span>
         </div>
-    {% endfor %}
+    {% endif %}
     </div>
 {% endfor %}
 <div class="calendarNavigation">

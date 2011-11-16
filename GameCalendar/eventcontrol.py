@@ -8,24 +8,22 @@ def eventDetails(request, **args):
 
     user = request.user
     
-    c = { 'event' : None, 'is_authenticated' : False }
+    c = { 'event' : None, 'can_delete' : False }
     c.update(csrf(request))
-
-    if not user.is_authenticated():
-        return HttpResponse(t.render(Context(c)))
-    else:
-        c['is_authenticated'] = True
 
     event = None
     if 'id' in args:
-        event = Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
+        event = Event.objects.get(id = int(args['id']))
 
     if event:
         c['event'] = event
+        c['can_delete'] = can_delete(user)
 
-    if event and 'delete' in request.POST:
+    if event and 'delete' in request.POST and can_delete(user):
         event.delete()
         return HttpResponseRedirect('/kalender/')
     
     return HttpResponse(t.render(Context(c)))
-            
+
+def can_delete(user):
+    return user.is_authenticated() and Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
