@@ -94,7 +94,7 @@ def calendar(request, **args):
 
     #TODO: find a better way to add the threads to the event
     for event in calmonth.events:
-        event.threads = Thread.objects.filter(event__id = event.id)
+        event.threads = Thread.objects.filter(event__id = event.id).order_by('title')
         for thread in event.threads:
             thread.openForEvent()
 
