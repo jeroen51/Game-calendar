@@ -17,7 +17,7 @@ def eventDetails(request, **args):
 
     if event:
         c['event'] = event
-        c['can_delete'] = can_delete(user)
+        c['can_delete'] = can_delete(user, args)
 
     if event and 'delete' in request.POST and can_delete(user):
         event.delete()
@@ -25,5 +25,5 @@ def eventDetails(request, **args):
     
     return HttpResponse(t.render(Context(c)))
 
-def can_delete(user):
+def can_delete(user, args):
     return user.is_authenticated() and Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
