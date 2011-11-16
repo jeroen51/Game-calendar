@@ -9,8 +9,7 @@
 
 {% if not is_authenticated %}
     <h2>Registreren</h2>
-    <p>Wil je registreren, dan kan dat hier. Op dit moment biedt het geen enkel voordeel, maar
-    registreer uit morele grond: omdat je deze site steunt.</p>
+    <p>Hier kan je registreren. Als je geregistreerd bent kan je evenementen toevoegen en aan besprekingen deelnemen.</p>
     <form class="linearForm" method="post">{% csrf_token %}
         <div>
             <label for="id_user_username">Gebruikersnaam (*)</label> {{ register_form.user_username }}
