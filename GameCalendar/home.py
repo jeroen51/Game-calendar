@@ -44,7 +44,6 @@ def news(request):
     c = { 'news' : News.objects.order_by('time').reverse() }
     return HttpResponse(t.render(Context(c)))
 
- 
 def ical(request, **args):
     t = loader.get_template('ical.view')
     
@@ -91,8 +90,8 @@ def calendar(request, **args):
         for thread in event.threads:
             thread.openForEvent()
 
-    c = { 'events' : calmonth.events, 
-          'year' : year, 
+    c = { 'events' : calmonth.events,
+          'year' : year,
           'month' : month,
           'monthname' : calmonth.monthName,
           'nextyear' : calmonth.nextYear,
