@@ -31,6 +31,6 @@
             <button type="submit">aankondigen</button>
         </form>
     {% else %}
-        <p>Je moet inloggen voor je een evenement kan toevoegen. Inloggen kan op de <a href="/over/">over spelkalender</a>-pagina.</p>
+        <p>Je moet inloggen voor je een evenement kan toevoegen. Inloggen kan op de <a href="/inloggen/">inlogpagina</a>.</p>
     {% endif %}
 {% endblock %}
