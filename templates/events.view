@@ -25,7 +25,7 @@
     <div class="calendarDay {% for type in day.types %}{{ type }}{% endfor %}">
     {% if day.events %}
         <h2>{{ day.date|date:"d M"|lower }} </h2>
-        <p>({% if day.date > today %}{{ day.date|timeuntil }}{% else %}{% if day.date = today %}vandaag{% else %}{{ day.date|timesince }}{% endif %}{% endif %})</p>
+        <p>({% if day.date > today %}{{ day.date|timeuntil }}{% else %}{% if day.date == today %}vandaag{% else %}{{ day.date|timesince }}{% endif %}{% endif %})</p>
         {% for event in day.events %}
             <div class="event">
                 <p><strong>{{ event.event_name }}</strong></p>
