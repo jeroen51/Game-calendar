@@ -22,10 +22,11 @@
                 {{ form.start_time }}</p>
                 <p><label for="id_end_time">en eindigt om</label>
                 {{ form.end_time }}
-                <label for="id_event_location">en vindt plaats te</label>
-                <span>{{ form.event_location }}</label>.</p>
-                <p><label for="id_event_description">Hier is een korte beschrijving van het evenement:</label></p>
+                <p><label for="id_event_location">en vindt plaats te</label></p>
+                <div>{{ form.event_location }}</label>.</div>
+                <p><label for="id_event_description">Dit is een korte beschrijving van het evenement:</label></p>
                 <div>{{ form.event_description }}</div>
+                <p><label for="id_event_description">en dit is een website met meer info:</label> {{ form.event_website }}</p>
             </div>
             <button type="submit">aankondigen</button>
         </form>
