@@ -28,7 +28,7 @@
         <div class="event">
             <p><strong>{{ event.event_name }}</strong></p>
             <p>Door: {{ event.event_organizer }}</p>
-            <p>Plaats: {{ event.event_location }}</p>
+            <p>Plaats: {{ event.event_location|linebreaks }}</p>
             <p>{{ event.start_time }} - {{ event.end_time }}</p>
         </div>
     {% endfor %}

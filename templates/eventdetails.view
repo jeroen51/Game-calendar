@@ -23,7 +23,7 @@
                 <th>Exporteren: </th><td><a href="/ical/{{ event.id }}/">downloaden</a></td>
             </tr>
             <tr>
-                <th>Plaats: </th><td colspan="3" >{{ event.event_location }}</td>
+                <th>Plaats: </th><td colspan="3" >{{ event.event_location|linebreaks }}</td>
             </tr>
             {% if event.event_website %}
             <tr>
@@ -32,7 +32,7 @@
             {% endif %}
         </table>
         <div class="eventDescription">
-           {{ event.event_description }}
+           {{ event.event_description|linebreaks }}
         </div>
         <div class="discussions">
             {% for thread in event.threads %}

@@ -44,7 +44,6 @@ def news(request):
     c = { 'news' : News.objects.order_by('time').reverse() }
     return HttpResponse(t.render(Context(c)))
 
- 
 def ical(request, **args):
     t = loader.get_template('ical.view')
     
@@ -98,7 +97,7 @@ def calendar(request, **args):
         event.threads = Thread.objects.filter(event__id = event.id)
         for thread in event.threads:
             thread.openForEvent()
-    
+
     days = {}
     for event in calmonth.events:
         if not event.start_time.day in days:
