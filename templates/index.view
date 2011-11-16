@@ -1,4 +1,10 @@
 {% extends "main.view" %}
+
+{% block breadcrumb %}
+    <a href="/">home</a> 
+    <span> &gt; </span> <a href="/over/">over spelkalender</a> 
+{% endblock %}
+
 {% block content %}
 <p>Spelkalender is een piepjonge site die je op de hoogte houdt van <strong>spelevenementen in België en Nederland</strong>.
 Hier vind je een overzicht van
@@ -20,27 +26,6 @@ href="/evenement_toevoegen/">Spelevenement of spelavond melden</a></h2>
 <p>Staat er een evenement niet op, <a
 href="/evenement_toevoegen/">meld het zelf</a> of mail een beschrijving
 naar <a href="mailto:spelkalender@gmail.com">spelkalender@gmail.com</a>.</p>
-
-{% if not is_authenticated %}
-
-<h2>Registreren en inloggen</h2>
-<p>Nog geen lid? <a href="/registratie/">Registreer</a> dan eerst. Anders log je hieronder in:</p>
-<form class="linearForm" method="post">{% csrf_token %}
-    <div>
-        <label for="id_username">Gebruikersnaam (*)</label> {{ login_form.username }}
-        {{ login_form.username.errors }}
-    </div>
-    <div>
-        <label for="id_password">Wachtwoord (*)</label> {{ login_form.password }}
-        {{ login_form.password.errors }}
-    </div>
-    <button type="submit">inloggen</button>
-</form>
-{% else %}
-<h2>Uitloggen</h2>
-<p><form class="inlineForm" method="post">{% csrf_token %}
-<input type="submit" name="logout" value="log uit"></form></p>
-{% endif %}
 
 <h2>Op de hoogte blijven</h2>
 <p><a href="http://eepurl.com/g6Q5c">Schrijf je in</a> op onze nieuwsbrief. Je kan ook onderaan de pagina de nieuwsberichten bekijken.</p>

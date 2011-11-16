@@ -5,9 +5,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^GameCalendar/', include('GameCalendar.foo.urls')),
-
     # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
     # to INSTALLED_APPS to enable admin documentation:
     (r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -25,11 +22,15 @@ urlpatterns = patterns('',
     (r'^add_event/?', 'GameCalendar.home.addevent'),
     (r'^evenement_toevoegen/?', 'GameCalendar.home.addevent'),
     (r'^ical/(?P<id>\d+)/?', 'GameCalendar.home.ical'),
+    (r'^over/?', 'GameCalendar.home.index'),
+    (r'^about/?', 'GameCalendar.home.index'),
+    (r'^inloggen/?', 'GameCalendar.home.login'),
+    (r'^login/?', 'GameCalendar.home.login'),
     (r'^kalender/(?P<year>\d+)/(?P<month>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^calendar/(?P<year>\d+)/(?P<month>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^kalender/(?P<year>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^calendar/(?P<year>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^kalender/?', 'GameCalendar.home.calendar'),
     (r'^calendar/?', 'GameCalendar.home.calendar'),
-    (r'', 'GameCalendar.home.index')
+    (r'', 'GameCalendar.home.calendar')
 )

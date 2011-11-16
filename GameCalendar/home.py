@@ -9,14 +9,14 @@ from django.contrib.auth import logout
 from forms import UserForm, LoginForm
 from calendarForms import EventForm
 
-def index(request):
+def login(request):
     error = ''
 
     if request.method == 'POST':
         if 'logout' in request.POST:
             logout(request)
             return HttpResponseRedirect('/')
-     
+
     login_form = None
     if request.method == 'POST': 
         login_form = LoginForm(request.POST) 
@@ -25,12 +25,17 @@ def index(request):
     else:
         login_form = LoginForm() 
 
-    t = loader.get_template('index.view')
+    t = loader.get_template('login.view')
     c = { 'is_authenticated' : request.user.is_authenticated(),
-          'login_form' : login_form, 
-          'news' : News.objects.order_by('time').reverse()[0:5],
-          'links' : Website.objects.order_by('id').reverse()[0:5] }
+          'login_form' : login_form }
     c.update(csrf(request))
+
+    return HttpResponse(t.render(Context(c)))
+
+def index(request):
+    t = loader.get_template('index.view')
+    c = { 'news' : News.objects.order_by('time').reverse()[0:5],
+          'links' : Website.objects.order_by('id').reverse()[0:5] }
 
     return HttpResponse(t.render(Context(c)))
 

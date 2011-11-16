@@ -14,10 +14,10 @@ h2                      { font-size: 1.2em; padding-top: 20px; }
                           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9dd53a', endColorstr='#7cbc0a',GradientType=0 ); /* ie */
                         }
 #content                { padding: 40px 10%; }
-#footer			        { display: block; padding: 15px; background: #45484d; /* old browsers */
-			              background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* firefox */
-			              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* webkit */
-			              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* ie */ }
+#footer, #menu          { display: block; padding: 15px; background: #45484d; /* old browsers */
+                          background: -moz-linear-gradient(top, #45484d 0%, #000000 100%); /* firefox */
+                          background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#45484d), color-stop(100%,#000000)); /* webkit */
+                          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* ie */ }
 #social                 { float: right; padding: 10px; }
 
 /* header */
@@ -48,8 +48,8 @@ table.eventData td      { text-align: left; padding: 5px; }
 .late, .early           { background-color: #f9a; }
 .open                   { background-color: #99d8ff; }
 
-/* footer */
-#footer a               { color: #fff; }
+/* footer & menu */
+#footer a, #menu a      { color: #fff; }
 
 /* forms */
 form.linearForm label   { width: 30%; display: inline-block; }
