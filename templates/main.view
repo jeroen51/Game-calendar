@@ -46,6 +46,12 @@
                 <a class="addthis_counter addthis_pill_style"></a>
             </div>
             <!-- AddThis Button END -->
+            <div id="menu">
+                <a href="/kalender/">de kalender</a> | 
+                <a href="/over/">over spelkalender</a> | 
+                <a href="/inloggen/">inloggen</a> | 
+                <a href="/registratie/">registreren</a>
+            </div>
             <div id="breadcrumb">
                 {% block breadcrumb %}
                     <a href="/">home</a>
@@ -62,9 +68,12 @@
             <div id="footer">
                 <span>
                     <a href="mailto:spelkalender@gmail.com">contacteer ons</a>
-                </span> | 
+                </span> |
                 <span>
                     <a href="http://eepurl.com/g6Q5c">schrijf in op de nieuwsbrief<a>
+                </span> |
+                <span>
+                    <a href="/over/">over spelkalender<a>
                 </span>
             </div>
         </div>
