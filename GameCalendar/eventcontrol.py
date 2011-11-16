@@ -2,6 +2,7 @@ from models import Event
 from django.core.context_processors import csrf
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader
+from django.core.exceptions import ObjectDoesNotExist
 
 def eventDetails(request, **args):
     t = loader.get_template('eventdetails.view')
@@ -28,5 +29,5 @@ def eventDetails(request, **args):
 def can_delete(user, args):
     try:
         return user.is_authenticated() and Event.objects.filter(acluserevent__user__id = user.id).get(id = int(args['id']))
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         return False
