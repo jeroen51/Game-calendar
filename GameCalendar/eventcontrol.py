@@ -15,6 +15,7 @@ def eventDetails(request, **args):
     event = None
     if 'id' in args:
         event = Event.objects.get(id = int(args['id']))
+        event.loadThreads()
 
     if event:
         c['event'] = event

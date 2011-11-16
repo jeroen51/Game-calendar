@@ -23,6 +23,11 @@ class Event(models.Model):
     def __str__(self):
         return self.event_name
 
+    def loadThreads(self):
+        self.threads = Thread.objects.filter(event__id = self.id).order_by('title')
+        for thread in self.threads:
+            thread.openForEvent()
+
 class Thread(models.Model):
     #Silly English doesn't have decent words for this:
     #   - Pre-discussion: before the event takes place
