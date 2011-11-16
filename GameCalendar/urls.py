@@ -25,11 +25,13 @@ urlpatterns = patterns('',
     (r'^add_event/?', 'GameCalendar.home.addevent'),
     (r'^evenement_toevoegen/?', 'GameCalendar.home.addevent'),
     (r'^ical/(?P<id>\d+)/?', 'GameCalendar.home.ical'),
+    (r'^over/?', 'GameCalendar.home.index'),
+    (r'^about/?', 'GameCalendar.home.index'),
     (r'^kalender/(?P<year>\d+)/(?P<month>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^calendar/(?P<year>\d+)/(?P<month>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^kalender/(?P<year>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^calendar/(?P<year>\d+)/?', 'GameCalendar.home.calendar'),
     (r'^kalender/?', 'GameCalendar.home.calendar'),
     (r'^calendar/?', 'GameCalendar.home.calendar'),
-    (r'', 'GameCalendar.home.index')
+    (r'', 'GameCalendar.home.calendar')
 )

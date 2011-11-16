@@ -1,4 +1,10 @@
 {% extends "main.view" %}
+
+{% block breadcrumb %}
+    <a href="/">home</a> 
+    <span> &gt; </span> <a href="/over/">over spelkalender</a> {% endblock %}
+{% endblock %}
+
 {% block content %}
 <p>Spelkalender is een piepjonge site die je op de hoogte houdt van <strong>spelevenementen in België en Nederland</strong>.
 Hier vind je een overzicht van
