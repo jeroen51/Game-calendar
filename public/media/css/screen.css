@@ -37,7 +37,7 @@ h2                      { font-size: 1.2em; padding-top: 20px; }
                           border-top: 1px solid #888; 
                           border-right: 1px solid #888; 
                           background: #ddd; min-height: 200px; }
-.calendarDay            { width: 200px; min-height: 2OOpx; min-width: 200px; background: #fff; padding: 10px 10px; border-left: 1px solid #888; display: table-cell; }
+.calendarDay            { width: 200px; height: 200px; min-height: 2OOpx; min-width: 200px; background: #fff; padding: 10px 10px; border-left: 1px solid #888; display: table-cell; }
 .gapDay                 { width: 70px; min-width: 70px; background: #ddd; }
 
 table.eventData         { background-color: #d8d8ff; border: 1px solid #c8c8ff; width: 100%; }
