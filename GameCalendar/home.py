@@ -77,12 +77,15 @@ def registration(request, **args):
 
 class CalendarDay:
     date = None
+    types = ['eventDay']
 
     def __init__(self, date):
         self.events = []
         self.date = date
 
 class GapDay:
+    types = ['gapDay']
+
     def __init__(self):
         self.events = []
 

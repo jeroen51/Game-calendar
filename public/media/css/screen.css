@@ -32,7 +32,12 @@ h2                      { font-size: 1.2em; padding-top: 20px; }
 #links                  {  padding: 0 0 0 2%; display: table-cell; }
 
 /* calendar */
-.calendarDay            { width: 10%; padding: 10px 2%; border-left: 1px solid #888; display: table-cell; }
+#calendar               { width: 100%; overflow: auto; height: 100%; 
+                          border-bottom: 1px solid #888; 
+                          border-top: 1px solid #888; 
+                          border-right: 1px solid #888; }
+.calendarDay            { width: 200px; min-width: 200px; padding: 10px 10px; border-left: 1px solid #888; display: table-cell; }
+.gapDay                 { width: 70px; min-width: 70px; background: #ccc; }
 
 table.eventData         { background-color: #d8d8ff; border: 1px solid #c8c8ff; width: 100%; }
 table.eventData th, 
