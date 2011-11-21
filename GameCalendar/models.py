@@ -49,10 +49,7 @@ class Thread(models.Model):
 
     def openForEvent(self):
         """The same as getStatus, but returns a simple boolean value."""
-
-        if self.getStatus() == 'open':
-            return True
-        return False 
+        return self.getStatus() == 'open'
 
     def getStatus(self):
         """Returns the discussion status as a string. Values are: 'early', 'late' and 'open'"""
@@ -100,6 +97,20 @@ class ACLUserEvent(models.Model):
     
     def __str__(self):
         return `self.user` + ' - ' + `self.event`
+
+class Presence(models.Model):
+    PRESENTNESS_TYPES = (
+        ('PR', 'Present'),
+        ('AB', 'Absent')
+    )
+
+    user = models.ForeignKey(User)
+    event = models.ForeignKey(Event)
+    presentness = models.CharField(max_length=2, choices=PRESENTNESS_TYPES)
+    reason = models.TextField()
+
+    def __str__(self):
+        return `self.user` + ' - ' + `self.event` + ' - ' + `self.presentness`
 
 class Website(models.Model):
     name = models.CharField(max_length=400)
