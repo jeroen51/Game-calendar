@@ -16,6 +16,9 @@ class MessageAdmin(admin.ModelAdmin):
 class ACLUserEventAdmin(admin.ModelAdmin):
     pass
 
+class PresenceAdmin(admin.ModelAdmin):
+    pass
+
 class WebsiteAdmin(admin.ModelAdmin):
     pass
 
@@ -25,3 +28,4 @@ admin.site.register(models.Thread, ThreadAdmin)
 admin.site.register(models.Message, MessageAdmin)
 admin.site.register(models.Website, WebsiteAdmin)
 admin.site.register(models.ACLUserEvent, ACLUserEventAdmin)
+admin.site.register(models.Presence, PresenceAdmin)
