@@ -21,7 +21,7 @@ def eventDetails(request, **args):
         c['event'] = event
         c['can_delete'] = can_delete(user, args)
 
-    if event and 'delete' in request.POST and can_delete(user):
+    if event and 'delete' in request.POST and can_delete(user, args):
         event.delete()
         return HttpResponseRedirect('/kalender/')
     
