@@ -20,6 +20,7 @@ def eventDetails(request, **args):
     if event:
         c['event'] = event
         c['can_delete'] = can_delete(user, args)
+        c['can_attend'] = False
 
     if event and 'delete' in request.POST and can_delete(user, args):
         event.delete()
@@ -33,6 +34,7 @@ def eventDetails(request, **args):
         return HttpResponseRedirect('/evenement/%s/' % (event.id))
     
     if event and user.is_authenticated():
+        c['can_attend'] = True
         c['attendees'] = ["%s %s" % (p.user.first_name, p.user.last_name)  for p in Presence.objects.filter(event__id = event.id)]
 
     return HttpResponse(t.render(Context(c)))

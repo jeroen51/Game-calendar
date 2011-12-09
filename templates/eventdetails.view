@@ -39,10 +39,12 @@
             {% if attendees %}
                 <p>Deze mensen komen alvast: {{ attendees|join:", " }}</p>
             {% endif %}
-            <form method="post">
-                {% csrf_token %}
-                <input type="submit" name="present" value="ik kom naar {{ event.event_name }}" >
-            </form>
+            {% if can_attend %}
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="submit" name="present" value="ik kom naar {{ event.event_name }}" >
+                </form>
+            {% endif %}
         </div>
         <div class="discussions">
             {% for thread in event.threads %}
