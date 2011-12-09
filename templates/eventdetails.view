@@ -15,8 +15,9 @@
         <h2>{{ event.event_name }}</h2>
         <table class="eventData">
             <tr>
-                <th>Begin: </th><td>{{ event.start_time }}</td>
-                <th>Eind: </th><td>{{ event.end_time }}</td>
+                <th>Dag: </th><td>{{ event.start_time.date }}
+                <th>Begin: </th><td>{{ event.start_time.time }}</td>
+                <th>Eind: </th><td>{{ event.end_time.time }}</td>
             </tr>
             <tr>
                 <th>Organisator: </th><td>{{ event.event_organizer }}</td>
@@ -33,6 +34,15 @@
         </table>
         <div class="eventDescription">
            {{ event.event_description|linebreaks }}
+        </div>
+        <div class="attendees">
+            {% if attendees %}
+                <p>Deze mensen komen alvast: {{ attendees|join:", " }}</p>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <input type="submit" name="present" value="ik kom naar {{ event.event_name }}" >
+            </form>
         </div>
         <div class="discussions">
             {% for thread in event.threads %}

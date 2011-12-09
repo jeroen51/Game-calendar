@@ -1,4 +1,4 @@
-from models import Event
+from models import Event, Presence
 from django.core.context_processors import csrf
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import Context, loader
@@ -24,8 +24,21 @@ def eventDetails(request, **args):
     if event and 'delete' in request.POST and can_delete(user, args):
         event.delete()
         return HttpResponseRedirect('/kalender/')
+
+    if event and 'present' in request.POST and can_be_present(user, args):
+        presence = Presence()
+        presence.user = user
+        presence.event = event
+        presence.save()
+        return HttpResponseRedirect('/evenement/%s/' % (event.id))
     
+    if event and user.is_authenticated():
+        c['attendees'] = ["%s %s" % (p.user.first_name, p.user.last_name)  for p in Presence.objects.filter(event__id = event.id)]
+
     return HttpResponse(t.render(Context(c)))
+
+def can_be_present(user, event):
+    return user.is_authenticated() and not Event.objects.filter(presence__user__id = user.id)
 
 def can_delete(user, args):
     try:
